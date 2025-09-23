@@ -1,10 +1,9 @@
 name: Daily Quotes API
 
+# Trigger: every day at 9:00 UTC + manual trigger
 on:
-  # Trigger daily at 9:00 UTC
   schedule:
     - cron: '0 9 * * *'
-  # Manual trigger
   workflow_dispatch:
 
 jobs:
@@ -12,30 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
+      # 2. Setup Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # 3️⃣ Install dependencies
+      # 3. Install dependencies
       - name: Install dependencies
-        run: |
-          echo "Installing dependencies..."
-          npm ci || npm install
-          npm list || true
+        run: npm install
 
-      # 4️⃣ Run your script
+      # 4. Run your API script from root
       - name: Run Daily Quotes Script
-        run: |
-          echo "Running Daily Quotes script..."
-          node src/index.js
-        continue-on-error: false
-
-      # 5️⃣ Output result logs
-      - name: Show last 10 lines of log (optional)
-        run: tail -n 10 log.txt || echo "No log file found"
+        run: node index.js
