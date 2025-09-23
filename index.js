@@ -1,10 +1,8 @@
 const express = require('express');
-const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 3000;
-const DB = 'quotes.db';
 
-// Simple in-memory quotes fallback
+// Simple in-memory quotes
 const defaultQuotes = [
   "Keep going. Everything you need will come to you at the perfect time.",
   "Small steps every day.",
