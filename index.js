@@ -1,22 +1,26 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+// index.js
+const fs = require('fs');
+const path = require('path');
 
-// Simple in-memory quotes
-const defaultQuotes = [
+// Quotes array
+const quotes = [
   "Keep going. Everything you need will come to you at the perfect time.",
   "Small steps every day.",
-  "Be kind to yourself."
+  "Be kind to yourself.",
+  "Believe in yourself and all that you are.",
+  "Progress, not perfection.",
+  "Every day is a fresh start.",
+  "You are capable of amazing things."
 ];
 
-// Endpoint to get a random quote
-app.get('/quote', (req, res) => {
-  const quote = defaultQuotes[Math.floor(Math.random() * defaultQuotes.length)];
-  res.json({ quote });
-});
+// Pick a random quote
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-// Root endpoint
-app.get('/', (req, res) => res.send('Daily Quotes API - GET /quote'));
+// Print to console
+console.log("🌟 Today's quote:", randomQuote);
 
-// Start server
-app.listen(port, () => console.log(`Listening on port ${port}`));
+// Optional: save quote to a file (can be used for record or further workflow steps)
+const outputFile = path.join(__dirname, 'latest-quote.txt');
+fs.writeFileSync(outputFile, randomQuote + '\n', 'utf8');
+console.log(`Saved quote to ${outputFile}`);
+
