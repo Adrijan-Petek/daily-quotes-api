@@ -1,4 +1,7 @@
 # Daily Quotes API
+
+![api-quote](api-quote.png)
+
 Static JSON API for quotes, hosted on GitHub Pages. It ships pagination, tag browsing, and a lightweight client-side search index. Build artifacts are generated daily via GitHub Actions and deployed automatically.
 
 ## Features
