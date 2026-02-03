@@ -1,13 +1,11 @@
 {
   "name": "daily-quotes-api",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "2.0.0",
+  "private": true,
+  "main": "scripts/build.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "node test.js"
+    "build": "node scripts/build.js",
+    "start": "node scripts/build.js"
   },
-  "dependencies": {
-    "express": "^4.18.2",
-    "sqlite3": "^5.1.6"
-  }
+  "dependencies": {}
 }

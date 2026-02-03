@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #0f1115;
+  color: #e6e9ef;
+}
+
+code {
+  background: #1a1f2b;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+pre {
+  background: #131722;
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.container {
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 3rem 0 2rem;
+  background: radial-gradient(circle at top, #222845 0%, #0f1115 60%);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: #2b3560;
+  color: #bcd2ff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-size: 0.85rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: #c7cbe2;
+}
+
+.meta {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8f97b5;
+}
+
+.card {
+  background: #141924;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin: 1.5rem 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.endpoint-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.note {
+  color: #9aa3c3;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+input,
+select,
+button {
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #27314a;
+  background: #0f1320;
+  color: #e6e9ef;
+}
+
+button {
+  cursor: pointer;
+}
+
+.quote-box {
+  font-size: 1.2rem;
+  padding: 1rem;
+  background: #0f1320;
+  border-radius: 12px;
+  border: 1px solid #27314a;
+}
+
+.quote-item {
+  padding: 0.8rem;
+  border-bottom: 1px solid #222a3d;
+}
+
+.quote-item:last-child {
+  border-bottom: none;
+}
+
+.quote-item span {
+  color: #8f97b5;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer {
+  padding: 2rem 0;
+  color: #8f97b5;
+  text-align: center;
+}

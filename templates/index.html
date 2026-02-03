@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Quotes API</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="badge">Static JSON API</p>
+        <h1>Daily Quotes API</h1>
+        <p class="lead">
+          A GitHub Pages hosted JSON API with pagination, tags, and client-side search.
+        </p>
+        <div class="meta">
+          <div>
+            <span class="label">Base URL</span>
+            <span id="base-url">Loading...</span>
+          </div>
+          <div>
+            <span class="label">Status</span>
+            <span id="health-status">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Endpoints</h2>
+        <ul class="endpoint-list">
+          <li><code>/api/quotes.json</code> — full dataset</li>
+          <li><code>/api/quotes/index.json</code> — pages index</li>
+          <li><code>/api/quotes/page-1.json</code> — paginated quotes</li>
+          <li><code>/api/daily.json</code> — deterministic daily quote</li>
+          <li><code>/api/tags.json</code> — tags list</li>
+          <li><code>/api/tags/{tag}.json</code> — quotes by tag</li>
+          <li><code>/api/search-index.json</code> — token search index</li>
+          <li><code>/api/health.json</code> — build health info</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Quick Start</h2>
+        <pre><code class="language-js">const base = "https://&lt;user&gt;.github.io/&lt;repo&gt;";
+const daily = await fetch(`${base}/api/daily.json`).then(r =&gt; r.json());
+console.log(daily.quote);
+
+const all = await fetch(`${base}/api/quotes.json`).then(r =&gt; r.json());
+const results = all.quotes.filter(q =&gt; q.quote.toLowerCase().includes("focus"));
+console.log(results.slice(0, 5));</code></pre>
+        <p class="note">
+          Because this is static hosting, query parameters are handled client-side.
+          Fetch <code>/api/quotes.json</code> once and filter or use the search index.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Daily Quote</h2>
+        <div id="daily-quote" class="quote-box">Loading...</div>
+      </section>
+
+      <section class="card">
+        <h2>Explore Quotes</h2>
+        <div class="filters">
+          <input id="search-input" type="search" placeholder="Search by text or author" />
+          <select id="tag-select">
+            <option value="">All tags</option>
+          </select>
+        </div>
+        <div id="results"></div>
+        <div class="pagination">
+          <button id="prev-page" type="button">Previous</button>
+          <span id="page-info">Page 1</span>
+          <button id="next-page" type="button">Next</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Built with GitHub Actions. Data refreshes daily.</p>
+      </div>
+    </footer>
+
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
